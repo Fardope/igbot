@@ -261,13 +261,15 @@ class API(object):
         generate_all_uuids=True,
         is_threaded=False,
     ):
-        if password is None:
-            username, password = get_credentials(
-                base_path=self.base_path, username=username
-            )
+#         if password is None:
+#             username, password = get_credentials(
+#                 base_path=self.base_path, username=username
+#             )
 
         set_device = generate_all_uuids = True
-        self.set_user(username, password)
+#         self.set_user(username, password)
+        if username is not None:
+            self.set_user(username, password)
         self.session = requests.Session()
 
         self.proxy = proxy
